@@ -1,0 +1,91 @@
+/* pages/healthyTesting/healthyTesting.wxss */
+page {
+  min-height: 100%;
+  /* background-color: #f8f8f8 */
+}
+.circular-01 {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 100%;
+  
+  display: inline-block;
+  padding: 20rpx;
+}
+.circular-02 {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border-radius: 100%;
+  padding: 50rpx 0;
+  box-sizing: border-box;
+}
+.my-swiper button {
+  color: #333 !important;
+  width: 400rpx;
+  border-radius: 20rpx
+}
+.bg-hong {
+  background: linear-gradient(#fee1dc , #fcc1b7);
+  background: -webkit-linear-gradient(#fee1dc , #fcc1b7);
+}
+.bg-hong .circular-02 {
+  background: linear-gradient(#fc9d8d , #f83b1c);
+  background: -webkit-linear-gradient(#fc9d8d , #f83b1c);
+}
+.bg-lv {
+  background: linear-gradient(#bcf2c8 , #bcf2c8);
+  background: -webkit-linear-gradient(#bcf2c8 , #bcf2c8);
+}
+.bg-lv .circular-02 {
+  background: linear-gradient(#abf666 , #26b819);
+  background: -webkit-linear-gradient(#abf666 , #26b819);
+}
+.bg-huang {
+  background: linear-gradient(#fef7d9 , #f8e0c1);
+  background: -webkit-linear-gradient(#fef7d9 , #f8e0c1);
+}
+.bg-huang .circular-02 {
+  background: linear-gradient(#fee586 , #e79c38);
+  background: -webkit-linear-gradient(#fee586 , #e79c38);
+}
+.measureResult {
+  border-radius: 10rpx;
+  box-shadow: 0 6rpx 12rpx #ccc
+}
+.measureResult .btn {
+  color: #003D9A;
+  text-decoration: underline
+}
+.color-hong {
+  color: #EF2222
+}
+.color-huang {
+  color: #E89C34
+}
+.color-lv {
+  color: #29BC16
+}
+.popMod {
+  width: 640rpx;
+  height: 960rpx
+}
+.popMod image {
+  width: 100%;
+  height: 540rpx
+}
+.popCont {
+  position: absolute;
+  top: 30rpx;
+  left: 0;
+  width: 100%;
+  padding: 50rpx;
+  box-sizing: border-box;
+}
+.popMod button {
+  width: 80%;
+  color:#721010 !important
+}
+.van-popup {
+  background-color: inherit !important;
+  color: #fff
+}

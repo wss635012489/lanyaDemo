@@ -1,0 +1,172 @@
+<view class="pad-15">
+  <view class="x-end">
+    <van-dropdown-menu active-color="#003D9A">
+      <van-dropdown-item value="{{ testingType }}" options="{{ testingOption }}" bind:change="menuChange"/>
+    </van-dropdown-menu>
+  </view>
+  <view class="mt-10 my-swiper">
+    <swiper current="{{testingType - 1}}" bindchange="swiperChange">
+      <swiper-item>
+        <view class="item-box text-center">
+          <view >
+            <view class="circular-01 bg-hong">
+              <view class="circular-02 text-center">
+                <image src="/assets/img/jc_xt.png"></image>
+              </view>
+            </view>
+          </view>
+          <view class="mt-20 font-16">
+            血糖测量
+          </view>
+          <view class="mt-25 between swiper-btn-box pad-lr-15">
+            <van-button color="#003D9A" bind:click="openDialog_ly" disabled="{{show_lanya_btn}}">蓝牙连接</van-button>
+            <van-button color="#003D9A" bind:click="openDialog_sd">手动录入</van-button>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="item-box text-center">
+          <view >
+            <view class="circular-01 bg-lv">
+              <view class="circular-02 text-center">
+                <image src="/assets/img/jc_xz.png"></image>
+              </view>
+            </view>
+          </view>
+          <view class="mt-20 font-16">
+            血脂测量
+          </view>
+          <view class="mt-25 between swiper-btn-box pad-lr-15">
+            <van-button color="#003D9A" bind:click="openDialog_ly" disabled="{{show_lanya_btn}}">蓝牙连接</van-button>
+            <van-button color="#003D9A" bind:click="openDialog_sd">手动录入</van-button>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="measureResult bg-bai mt-20">
+    <view class="pad-15 between">
+      <view>今日测量结果：</view>
+      <view class="btn" bindtap="goHistory">历史记录</view>
+    </view>
+    <view class="van-hairline--top pad-15">
+      <view wx:if="{{curMeResult}}">
+        <block wx:if="{{testingType == 1}}">
+          <view class="y-center between">
+            <view class="blod {{evaluationResultNumber == 1? 'color-lv':''}} {{evaluationResultNumber == 2?'color-hong':''}} {{evaluationResultNumber == 3?'color-huang':''}}"><text class="font-18 blod">{{curMeResult.blood_sugar}}</text>{{unit}}</view>
+              <view class="blod {{evaluationResultNumber == 1? 'color-lv':''}} {{evaluationResultNumber == 2?'color-hong':''}} {{evaluationResultNumber == 3?'color-huang':''}}">{{curMeResult.detection_result}}</view>
+            </view>
+            <view class="y-center between mt-10">
+              <block >
+                <view  class="color-9">{{measuringOptions[curMeResult.status]}}</view>
+                <view class="color-9">{{curMeResult.detection_time}}</view>
+              </block>
+            </view>
+        </block>
+        <block wx:else>
+          <view>测量时间：{{curMeResult.detection_time}}</view>
+            <view class="mt-10" wx:for="{{curMeResult.list}}">
+              <van-row gutter="15">
+                <van-col span="11">
+                  <view class="van-ellipsis {{item.result =='偏高'?'color-hong':''}} {{item.result =='偏低'?'color-huang':''}} {{item.result =='正常'?'color-lv':''}} {{item.result =='不正常'?'color-lan-2':''}}">{{item.name}}</view>
+                </van-col>
+                <van-col span="7">
+                  <view class="text-center">
+                    <text class="blod">{{item.val}}</text> mmol/L
+                  </view>
+                </van-col>
+                <van-col span="6">
+                  <view class="text-right {{item.result =='偏高'?'color-hong':''}} {{item.result =='偏低'?'color-huang':''}} {{item.result =='正常'?'color-lv':''}} {{item.result =='不正常'?'color-lan-2':''}}">
+                    {{item.result}}
+                  </view>
+                </van-col>
+              </van-row>
+            </view>
+        </block>
+      </view>
+      <view class="color-9 " wx:else>今日您还未测量血糖，快去测量一下吧！~~</view>
+    </view>
+  </view>
+  <view class="mt-30" wx:if="videoUrl">
+    <view>测量教程：</view>
+    <view class="mt-15">
+      <video src="{{videoUrl}}" id="myVideo" bindended="videoPlayEnd" binderror="videoPlayErr"></video>
+    </view>
+  </view>
+</view>
+<van-dialog
+  use-slot
+  title="{{dialogTitleArr[testingType - 1]}}"
+  show="{{ dialogVisible }}"
+  show-cancel-button
+  bind:close="onClose"
+  bind:confirm="onConfirm"
+  z-index="999"
+  cancel-button-text="关闭"
+  custom-style="overflow-y: scroll"
+>
+  <view class="dialog-input-box {{testingType == 2?'dialog-input-pad_xz':'dialog-input-pad'}}">
+    <view class="van-hairline--surround y-center between pad-lr-15" bindtap="openTimer">
+      <text>{{timerTxt}}</text><van-icon name="underway-o" class="color-9"/>
+    </view>
+    <block wx:if="{{testingType == 1}}">
+      <view class="van-hairline--surround my-flex mt-30">
+        <view class="my-flex my-flex-1">
+          <van-field type="tel" value="{{ inputValue }}" data-type="xt" placeholder="请输入血糖测量数值" border="{{ false }}" bind:input="inputChange" clearable/>
+        </view>
+        <view class="my-flex right color-9 x-end y-center">{{unit}}</view>
+      </view>
+      <view class="van-hairline--surround y-center between pad-lr-15 mt-30" bindtap="openStatus">
+        <text class="{{!status?'color-9':''}} font-14">{{statusTxt}}</text><van-icon name="arrow-down" class="color-9"/>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="van-hairline--surround my-flex mt-20">
+        <view class="my-flex my-flex-1">
+          <van-field type="tel" value="{{ inputTgValue }}" placeholder="请输入(TG)甘油三酯测量数值" border="{{ false }}" bind:input="inputChange" data-type="tg" clearable/>
+        </view>
+        <view class="my-flex right color-9 x-end y-center">mmol/L</view>
+      </view>
+      <view class="van-hairline--surround my-flex mt-20">
+        <view class="my-flex my-flex-1">
+          <van-field type="tel" value="{{ inputTcValue }}" placeholder="请输入(TC)总胆固醇测量数值" border="{{ false }}" bind:input="inputChange" data-type="tc" clearable/>
+        </view>
+        <view class="my-flex right color-9 x-end y-center">mmol/L</view>
+      </view>
+      <view class="van-hairline--surround my-flex mt-20">
+        <view class="my-flex my-flex-1">
+          <van-field type="tel" value="{{ inputLdlValue }}" placeholder="请输入(LDL)低密度脂蛋白胆固醇测量数值" border="{{ false }}" bind:input="inputChange" data-type="ldl" clearable/>
+        </view>
+        <view class="my-flex right color-9 x-end y-center">mmol/L</view>
+      </view>
+      <view class="van-hairline--surround my-flex mt-20">
+        <view class="my-flex my-flex-1">
+          <van-field type="tel" value="{{ inputHdlValue }}" placeholder="请输入(HDL)高密度脂蛋白胆固醇测量数值" border="{{ false }}" bind:input="inputChange" data-type="hdl" clearable/>
+        </view>
+        <view class="my-flex right color-9 x-end y-center">mmol/L</view>
+      </view>
+    </block>
+    <view class="mt-15 lan-btn" wx:if="{{show_lanya_btn}}">
+      <view class="font-13" style="color:#FF0033" wx:if="{{lanya_tip}}">{{lanya_tip}}</view>
+      <view class="mt-15"><van-button color="#003D9A" block bindtap="reconnect" disabled="{{disabled_lanya}}">{{lan_btn_text}}</van-button></view>
+    </view>
+  </view>
+</van-dialog>
+<van-popup show="{{ showPop }}"  position="bottom" z-index="999">
+  <van-datetime-picker
+    wx:if="{{popType == 'timer'}}"
+    type="datetime"
+    value="{{ selectDate }}"
+    bind:cancel="closeTimer"
+    bind:confirm="onConfirmTimer"
+  />
+  <van-picker
+    wx:if="{{popType == 'status'}}"
+    show-toolbar
+    columns="{{ measuringOptions }}"
+    bind:cancel="closeStatus"
+    bind:confirm="onConfirmStatus"
+  />
+</van-popup>
+<van-toast id="van-toast" zIndex="9999"/>
+

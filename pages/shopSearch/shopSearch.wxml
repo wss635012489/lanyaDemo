@@ -1,0 +1,15 @@
+<van-sticky offset-top="{{ 1 }}">
+  <view style="margin-top:-1px" >
+      <van-search placeholder="请输入商品名称" bind:search="onSearch" focus="{{true}}"/>
+  </view>
+</van-sticky>
+<view class="y-center between pad">
+  <view>历史搜索</view>
+  <view class="font-12" bindtap="clearSearch">清空</view>
+</view>
+<view class="box">
+  <view class="item-li" wx:for="{{list}}" wx:key="{{index}}" data-itemkey="{{item}}" bindtap="goSearch" longpress="delItem">
+    {{item}}
+  </view>
+</view>
+<van-dialog id="van-dialog" />

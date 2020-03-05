@@ -1,0 +1,30 @@
+<view>
+  <view class="pad-lr-15 pad-b-20">
+    <block wx:if="{{list.length > 0}}">
+      <van-row gutter="10">
+        <van-col span="12" wx:for="{{list}}" wx:key="{{index}}">
+          <view class="bg-bai mt-10" bindtap="goDetails" data-itemid="{{item.id}}">
+            <image src="{{item.main_img}}?imageMogr2/format/jpg/quality/45" class="comm-img" mode="aspectFit" lazy-load="{{true}}"></image>
+            <view class="pad pos-r">
+              <view class="van-ellipsis">{{item.good_name}}</view>
+              <view class="mt-2"><van-tag plain color="#00399D">包邮</van-tag></view>
+              <view class="color-lan y-center mt-8 van-ellipsis">
+                <text>¥<text class="font-16">{{item.beanGoodsSpecList[0].activity_price_num}}</text><text wx:if="{{item.beanGoodsSpecList[0].activity_bean_num}}">+{{item.beanGoodsSpecList[0].activity_bean_num}}<text class="font-12">({{integral_name}})</text></text></text>
+              </view>
+              <view class="add-btn font-24 color-lan" data-itemdata="{{item}}" catchtap="addCommToCart"><van-icon name="add"/></view>
+            </view>
+          </view>
+        </van-col>
+      </van-row>
+    </block>
+    <block wx:else>
+      <view class="color-9 mt-70 text-center">暂无商品数据~</view>
+    </block>
+  </view>
+  <view class="cartBox">
+    <view class="pos-r" bindtap="goCart">
+      <image src="/assets/img/cart.png"></image>
+      <view class="number" wx:if="{{totalCartNumber}}"><van-tag round type="danger">{{totalCartNumber}}</van-tag></view>
+    </view>
+  </view>
+</view>

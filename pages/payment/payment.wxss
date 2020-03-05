@@ -1,0 +1,28 @@
+/* pages/payment/payment.wxss */
+page {
+  min-height: 100%;
+  background-color: #f8f8f8
+}
+.address,.item-li {
+  border-radius: 10rpx;
+  box-shadow:  0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+.item-li {
+  margin-top: 20rpx
+}
+.item-li:first-child {
+  margin-top: 0
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #fff;
+  height: 130rpx;
+}
+.van-button {
+  width: 196rpx !important;
+  height: 76rpx !important
+}

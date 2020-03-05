@@ -1,0 +1,25 @@
+/* pages/order/order.wxss */
+page {
+  min-height: 100%;
+  background-color: #f8f8f8
+}
+.van-tab {
+  color: #777 !important
+}
+.van-tab--active {
+  color: #222 !important
+}
+.btn-box .van-button {
+  margin-right: 30rpx;
+  height: 80rpx !important;
+  width: 200rpx !important
+}
+.line {
+  width: 200rpx;
+  height: 5rpx;
+  background-color: #ddd;
+  margin-bottom: 40rpx
+}
+.plot {
+  width: 100rpx
+}

@@ -1,0 +1,92 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/healthy/healthy",
+    "pages/home/self/self",
+    "pages/login/login",
+    "pages/checkLogin/checkLogin",
+    "pages/home/sign/sign",
+    "pages/testingHistory/testingHistory",
+    "pages/testingResult/testingResult",
+    "pages/register/register",
+    "pages/home/shop/shop",
+    "pages/shopSearch/shopSearch",
+    "pages/shopSearchCont/shopSearchCont",
+    "pages/commDetail/commDetail",
+    "pages/verification/verification",
+    "pages/address/address",
+    "pages/addressEdit/addressEdit",
+    "pages/cart/cart",
+    "pages/payment/payment",
+    "pages/payResult/payResult",
+    "pages/order/order"
+  ],
+  "tabBar": {
+    "selectedColor": "#003d9a",
+    "list": [
+      {
+        "iconPath": "/assets/img/tabbar_01_n.png",
+        "selectedIconPath": "/assets/img/tabbar_01_y.png",
+        "pagePath": "pages/home/healthy/healthy",
+        "text": "健康数据"
+      },
+      {
+        "iconPath": "/assets/img/tabbar_02_n.png",
+        "selectedIconPath": "/assets/img/tabbar_02_y.png",
+        "pagePath": "pages/home/sign/sign",
+        "text": "签到"
+      },
+      {
+        "iconPath": "/assets/img/tabbar_03_n.png",
+        "selectedIconPath": "/assets/img/tabbar_03_y.png",
+        "pagePath": "pages/home/shop/shop",
+        "text": "商城"
+      },
+      {
+        "iconPath": "/assets/img/tabbar_04_n.png",
+        "selectedIconPath": "/assets/img/tabbar_04_y.png",
+        "pagePath": "pages/home/self/self",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "民康糖管家",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon",
+    "van-image": "@vant/weapp/image",
+    "van-row": "@vant/weapp/row",
+    "van-col": "@vant/weapp/col",
+    "van-grid": "@vant/weapp/grid",
+    "van-grid-item": "@vant/weapp/grid-item",
+    "van-tag": "@vant/weapp/tag",
+    "van-cell": "@vant/weapp/cell",
+    "van-cell-group": "@vant/weapp/cell-group",
+    "van-button": "@vant/weapp/button",
+    "van-dialog": "@vant/weapp/dialog",
+    "van-field": "@vant/weapp/field",
+    "van-toast": "@vant/weapp/toast",
+    "van-popup": "@vant/weapp/popup",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu",
+    "van-dropdown-item": "@vant/weapp/dropdown-item",
+    "van-datetime-picker": "@vant/weapp/datetime-picker",
+    "van-loading": "@vant/weapp/loading",
+    "van-sticky": "@vant/weapp/sticky",
+    "van-picker": "@vant/weapp/picker",
+    "van-search": "@vant/weapp/search",
+    "van-tab": "@vant/weapp/tab",
+    "van-tabs": "@vant/weapp/tabs",
+    "van-stepper": "@vant/weapp/stepper",
+    "van-radio": "@vant/weapp/radio",
+    "van-radio-group": "@vant/weapp/radio-group",
+    "van-switch": "@vant/weapp/switch",
+    "van-checkbox": "@vant/weapp/checkbox",
+    "van-checkbox-group": "@vant/weapp/checkbox-group"
+  }
+}

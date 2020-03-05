@@ -1,0 +1,4 @@
+/* pages/payResult/payResult.wxss */
+.van-button {
+  width: 260rpx !important
+}

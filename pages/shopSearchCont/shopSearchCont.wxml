@@ -1,0 +1,10 @@
+<van-sticky offset-top="{{ 1 }}">
+  <view style="margin-top:-1px">
+      <van-search placeholder="请输入商品名称" bind:search="onSearch" value="{{ value }}"/>
+  </view>
+</van-sticky>
+<commity list="{{list}}"></commity>
+<view class="text-center" wx:if="{{loading}}">
+  <van-loading class="pad-bt-15" size="40rpx">加载中...</van-loading>
+</view>
+<van-toast id="van-toast" />

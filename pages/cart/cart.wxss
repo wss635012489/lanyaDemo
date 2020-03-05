@@ -1,0 +1,29 @@
+/* pages/cart/cart.wxss */
+page {
+  min-height: 100%;
+  background-color: #f8f8f8
+}
+.item-li {
+   border-radius: 10rpx;
+   box-shadow:  0 2rpx 8rpx rgba(0, 0, 0, 0.2);
+   margin-top: 20rpx
+}
+.item-li:first-child {
+  margin-top: 0
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #fff;
+  height: 130rpx;
+}
+.van-button {
+  width: 166rpx !important;
+  height: 76rpx !important
+}
+.pop-box .van-tag {
+  margin: 24rpx 14rpx
+}

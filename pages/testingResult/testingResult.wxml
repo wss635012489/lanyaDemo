@@ -1,0 +1,83 @@
+<view class="pad-15">
+  <view class="mt-10 my-swiper">
+    <view class="item-box text-center">
+      <view >
+        <view class="circular-01 {{evaluationResultNumber == 1? 'bg-lv':''}} {{evaluationResultNumber == 2?'bg-hong':''}} {{evaluationResultNumber == 3?'bg-huang':''}}">
+          <view class="circular-02 text-cener color-bai">
+            <view class="font-24">{{inputVal}}</view>
+            <view>{{testingData.unit}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="mt-20 font-16 {{evaluationResultNumber == 1? 'color-lv':''}} {{evaluationResultNumber == 2? 'color-hong':''}} {{evaluationResultNumber == 1? 'color-huang':''}}">
+        {{evaluationResult}}
+      </view>
+      <view class="font-12 mt-15" vx:if="showStandard">{{showStandard}}</view>
+      <!-- <view class="mt-25">
+        <van-button color="#D8D8D8" bind:click="back">返回</van-button>
+      </view> -->
+    </view>
+  </view>
+  <view class="measureResult bg-bai mt-30">
+    <view class="pad-15">
+      <view>对比上次测量结果：</view>
+    </view>
+    <view class="van-hairline--top pad-15">
+      <view wx:if="{{curMeResult}}">
+          <block wx:if="{{detectionType == 2}}">
+            <view class="y-center between">
+              <view class="blod {{lastEvaluationResultNumber == 1? 'color-lv':''}} {{lastEvaluationResultNumber == 2?'color-hong':''}} {{lastEvaluationResultNumber == 3?'color-huang':''}}"><text class="font-18 blod">{{curMeResult.blood_sugar}}</text>{{testingData.unit}}</view>
+                <view class="blod {{lastEvaluationResultNumber == 1? 'color-lv':''}} {{lastEvaluationResultNumber == 2?'color-hong':''}} {{lastEvaluationResultNumber == 3?'color-huang':''}}">{{curMeResult.detection_result}}</view>
+              </view>
+              <view class="y-center between mt-10">
+                <block >
+                  <view  class="color-9">{{measuringOptions[curMeResult.status]}}</view>
+                  <view class="color-9">{{curMeResult.detection_time}}</view>
+                </block>
+              </view>
+          </block>
+          <block wx:else>
+            <view>测量时间：{{curMeResult.detection_time}}</view>
+            <view class="mt-10" wx:for="{{curMeResult.list}}">
+              <van-row gutter="15">
+                <van-col span="11">
+                  <view class="van-ellipsis {{item.result =='偏高'?'color-hong':''}} {{item.result =='偏低'?'color-huang':''}} {{item.result =='正常'?'color-lv':''}} {{item.result =='不正常'?'color-lan-2':''}}" >{{item.name}}</view>
+                </van-col>
+                <van-col span="7">
+                  <view class="text-center">
+                    <text class="blod">{{item.val}}</text> mmol/L
+                  </view>
+                </van-col>
+                <van-col span="6"> 
+                  <view class="text-right {{item.result =='偏高'?'color-hong':''}} {{item.result =='偏低'?'color-huang':''}} {{item.result =='正常'?'color-lv':''}} {{item.result =='不正常'?'color-lan-2':''}}">
+                    {{item.result}}
+                  </view>
+                </van-col>
+              </van-row>
+            </view>
+          </block>
+      </view>
+      <view class="color-9 " wx:else>暂无数据~</view>
+    </view>
+  </view>
+  <view class="mt-30">
+    <view class="font-16">健康建议：</view>
+    <view class="mt-10" style="line-height:50rpx">
+      {{suggestText}}
+    </view>
+  </view>
+</view>
+<van-popup show="{{ showPop }}">
+    <view class="popMod">
+      <view class="pos-r">
+        <image src="/assets/img/jc_bg.png" class="signDialog"></image>
+        <view class="popCont text-center color-bai">
+          <view class="font-24 mt-10">今日测量完成</view>
+          <view class="mt-25">奖励{{check_sens_num}}个{{integral_name}}，{{integral_name}}可用于商品兑换</view>
+          <view class="mt-20">坚持每天测量将获得更多优惠！</view>
+          <view class="mt-40"><van-button color="#FAFA15" round bindtap="closePop">我知道了</van-button></view>
+        </view>
+      </view>
+      <view class="text-center mt-20"><van-icon name="close" class="font-34" bindtap="closePop"/></view>
+    </view>
+  </van-popup>

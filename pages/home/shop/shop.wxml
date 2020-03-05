@@ -1,0 +1,15 @@
+<van-sticky offset-top="{{ 1 }}">
+  <view style="margin-top:-1px" >
+      <view bindtap="onSearch">
+        <van-search placeholder="请输入商品名称" disabled/>
+      </view>
+      <van-tabs active="{{ active }}" color="#003D9A" bind:change="onTabChange">
+        <van-tab title="{{item.item_name}}" wx:for="{{tabTtypeArr}}" wx:key="{{item.id}}" name="{{item.id}}"></van-tab>
+    </van-tabs>
+  </view>
+</van-sticky>
+<commity list="{{list}}"></commity>
+<view class="text-center" wx:if="{{loading}}">
+  <van-loading class="pad-bt-15" size="40rpx">加载中...</van-loading>
+</view>
+<van-toast id="van-toast" />

@@ -1,0 +1,7 @@
+/* pages/addressEdit/addressEdit.wxss */
+.van-cell {
+  padding: 30rpx !important
+}
+.van-field__input--disabled {
+  color: #222 !important
+}

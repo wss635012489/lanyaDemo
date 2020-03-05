@@ -1,0 +1,68 @@
+<view class="pad-15">
+  <view class="address bg-bai y-center pad-15 between" bindtap="selAddress">
+    <view class="y-center">
+      <view class="font-20" style="color:#1FBB08">
+        <van-icon name="location" />
+      </view>
+      <view class="pad-lr-15">
+        <block wx:if="{{adrInfo}}">
+          <view><text class="font-16 mr-10">{{adrInfo.user_name}}</text>{{adrInfo.tel_phone}}</view>
+          <view class="mt-5">
+            {{adrInfo.province_name}}{{adrInfo.city_name}}{{adrInfo.district_name}}{{adrInfo.address}}{{adrInfo.house_num}}
+          </view>
+        </block>
+        <view class="color-8" wx:else>请选择收货地址</view>
+      </view>
+    </view>
+    <view class="color-9 mt-3">
+      <van-icon name="arrow" />
+    </view>
+  </view>
+</view>
+<view class="pad-lr-15">
+  <view class="item-li bg-bai pad-15" wx:for="{{list}}" wx:key="{{index}}">
+    <view class="pad-b-15 y-center">
+      <van-image
+        width="160rpx"
+        height="160rpx"
+        fit="contain"
+        src="{{item.main_img}}?imageMogr2/format/jpg/quality/45"
+      />
+      <view class="ml-15">
+        <view class="van-ellipsis" style="width:440rpx">{{item.good_name}}</view>
+        <view class="mt-10">规格：{{item.spec_name}}</view>
+        <view class="mt-10">数量：{{item.order_num}}</view>
+      </view>
+    </view>
+    <view class="between">
+      <view>配送方式：<text class="color-8">普通快递</text></view>
+      <view>快递免邮</view>
+    </view>
+    <view class="text-right mt-20">
+      金额：<text class="color-lan">¥<text class="font-18">{{item.activity_price_num * item.order_num}}</text><text wx:if="{{item.activity_bean_num * item.order_num}}">+{{item.activity_bean_num * item.order_num}}<text class="font-12">({{integral_name}})</text></text></text>
+    </view>
+  </view>
+  <view class="mt-15">
+    <van-field
+      value="{{ order_desc }}"
+      label="备注"
+      type="textarea"
+      placeholder="请输入您的留言备注"
+      autosize
+      border="{{ false }}"
+      bind:change="onDescChange"
+    />
+  </view>
+  <view style="height:160rpx"></view>
+</view>
+<view class="footer y-center van-hairline--top">
+  <view class="pad-lr-15 between y-center" style="width:100%">
+    <view>
+      合计：<text class="color-lan">¥<text class="font-18">{{all_price_num}}</text><text wx:if="{{all_bean_num}}">+{{all_bean_num}}<text class="font-12">({{integral_name}})</text></text></text>
+    </view>
+    <view>
+      <van-button round color="#003D9A" bind:click="goPay" disabled="{{!list.length}}" disabled="{{disabled}}">立即支付</van-button>
+    </view>
+  </view>
+</view>
+<van-toast id="van-toast" />

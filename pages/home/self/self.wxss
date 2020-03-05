@@ -1,0 +1,38 @@
+/* pages/home/self/self.wxss */
+page {
+  min-height: 100%;
+  background-color: #f8f8f8
+}
+.mask {
+    background: linear-gradient(135deg, #2D76E5, #003D9A);
+    height: 390rpx;
+    border-radius: 10rpx;
+    box-sizing: border-box;
+    overflow: hidden
+}
+.meun-box {
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+/* .meun-box image {
+  width: 60rpx;
+  height: 60rpx
+} */
+.van-grid-item__content {
+  padding: 40rpx 16rpx !important
+}
+.van-image {
+  background-color: #fff
+}
+.van-cell {
+  padding: 30rpx 30rpx !important
+}
+.meun-box image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+  margin-top: 3rpx !important
+}
+.van-image {
+  background-color: #fff !important
+}

@@ -1,0 +1,79 @@
+<view class="pos-r" >
+  <view class="top-bg">
+    <image src="/assets/img/sign-bg.png"></image>
+  </view>
+  <view class="canlendarBox">
+    <view class="canlendarBgView pos-r">
+      <view class="signNumber text-center color-bai">
+        <view>
+            <view>
+              <view class="text-left">当月累计签到</view>
+              <view class="text-right" style="margin-top:-16rpx">
+                <text style="font-size:48rpx">{{continue_day}}</text>天
+              </view>
+            </view>
+        </view>
+      </view>
+      <view class="canlendarView">
+        <view class="color-9 text-center">连续签到，可获得更多{{integral_name}}奖励~</view>
+        <view class="canlendarTopView y-center x-center pad-t-15 mt-10">
+        <view class="leftBgView" bindtap="handleCalendar" data-handle="prev">
+          <view class="leftView"><van-icon name="arrow-left" /></view>
+        </view>
+        <view class="centerView text-center">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+        <view class="rightBgVie" bindtap="handleCalendar" data-handle="next">
+          <view class="rightView"><van-icon name="arrow" /></view>
+        </view>
+        </view>
+        <view class="weekBgView text-center mt-20">
+        <view class="weekView" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+        </view>
+        <view class="dateBgView">
+        <view wx:if="{{hasEmptyGrid}}" class="dateEmptyView" wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}">
+        </view>
+        <view class="dateView text-center" wx:for="{{days}}" wx:key="{{index}}" data-idx="{{item.day}}" data-daytype="{{item.type}}" bindtap="dateSelectAction">
+          <view class="datesView mt-15">
+            <view class="pos-r {{index == todayIndex ? 'dateSelectView' : ''}} {{item.type == 'qd'?'color-9':''}} {item.type == 'bq'?'color-9':''}} {{(index == todayIndex && item.type == 'qd')?'bg-d':''}}">
+              {{item.day}}
+              <view class="sign-type">
+                <van-icon name="success" class="color-lan font-24" wx:if="{{item.type == 'qd'}}"/>
+                <van-image round width="44rpx" height="44rpx" src="/assets/img/sign-bq.png" wx:if="{{item.type == 'bq'}}"/>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view style="clear:both"></view>
+        </view>
+      </view>
+      </view>
+      <view class="text-center mt-20 sign-btn">
+        <van-button color="#003D9A" bindtap="goSign">立即签到</van-button>
+      </view>
+      <view class="mt-20">
+        <text class="color-8">签到规则：</text>
+        <view class="mt-10 color-8" style="line-height:50rpx">
+          <view>1、每位会员，每天只能签到一次，每次签到将会获得一定{{integral_name}}奖励！</view>
+          <view>2、签到获得{{integral_name}}，可用于商城部分商品购买折扣！</view>
+          <view>3、连续签到将会获得更多{{integral_name}}奖励哦~</view>
+        </view>
+      </view>
+      <view style="height:60rpx"></view>
+  </view>
+</view>
+<view catchtouchmove="{{true}}">
+  <van-popup show="{{ showPop }}">
+    <view class="popMod">
+      <view class="pos-r">
+        <image src="/assets/img/sign_dialog_bg.png" class="signDialog"></image>
+        <view class="popCont text-center">
+          <view style="color:#F57C3C" class="font-24 mt-10">签到成功</view>
+          <view style="color:#F57C3C" class="mt-30">获得 {{reward}} 个{{integral_name}}</view>
+          <view style="color:#F57C3C" class="mt-20">坚持每天签到将获得更多{{integral_name}}</view>
+          <view class="mt-60"><van-button color="#FAFA15" round bindtap="closePop">我知道了</van-button></view>
+        </view>
+      </view>
+      <view class="text-center mt-20"><van-icon name="close" class="font-34" bindtap="closePop"/></view>
+    </view>
+  </van-popup>
+</view>
+<van-toast id="van-toast" />

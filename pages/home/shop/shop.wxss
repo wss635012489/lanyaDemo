@@ -1,0 +1,8 @@
+/* pages/home/shop/shop.wxss */
+page {
+  min-height: 100%;
+  background-color: #f8f8f8
+}
+.van-tab--active {
+  color: #003D9A !important
+}

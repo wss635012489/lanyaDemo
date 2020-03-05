@@ -1,0 +1,19 @@
+<!--pages/login/login.wxml-->
+<view class="pad-15">
+  <view class="mt-20 text-center">
+    <van-image round width="140rpx" height="140rpx" fit="cover" src="{{headUrl}}"/>
+    <view class="mt-15 font-16">{{name}}</view>
+  </view>
+  <view class="mt-40">
+    <van-field type="number" value="{{ phoneNumber }}" clearable bind:input="onPhoneChange" maxlength="11" placeholder="请输入手机号" />
+  </view>
+  <view class="mt-40 code-box">
+    <van-field type="number" value="{{ code }}" bind:input="onCodeChange" clearable maxlength="6" placeholder="请输入短信验证码" use-button-slot>
+      <van-button slot="button" round size="small" color="#003D9A"  type="primary" bind:click="getCode" disabled="{{disabled}}">{{codeTxt}}</van-button>
+    </van-field>
+  </view>
+  <view class="text-center mt-70 login-btn">
+    <van-button round color="#003D9A" bind:click="goRegistrer">注册</van-button>
+  </view>
+  <van-toast id="van-toast" />
+</view>

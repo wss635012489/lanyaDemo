@@ -1,0 +1,26 @@
+@import '../../app.wxss';
+.comm-img {
+  width: 100%;
+  height: 336rpx;
+  display: block
+}
+.add-btn {
+  position: absolute;
+  right: 30rpx;
+  top: 70rpx;
+}
+.cartBox {
+  position: fixed;
+  right: 30rpx;
+  bottom: 150rpx;
+  z-index: 10
+}
+.cartBox image {
+  width: 120rpx;
+  height: 120rpx;
+}
+.cartBox .number {
+  position: absolute;
+  right: 6rpx;
+  top: -14rpx
+}

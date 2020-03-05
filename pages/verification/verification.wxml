@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="text-center">
+  <view class="mt-70">
+    <image src="/assets/img/logo.png"></image>
+    <view class="mt-20">欢迎来到民康小程序</view>
+    <view class="mt-20">为了提供更好的服务体验，请点击“允许授权”</view>
+  </view>
+  <view class="userinfo mt-40 pad-lr-15">
+    <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="bg-lan color-bai"> 微信授权 </button> -->
+    <van-row gutter="30">
+      <van-col span="12">
+        <button class="bg-lan color-bai" bindtap="back"> 拒绝 </button>
+      </van-col>
+      <van-col span="12">
+        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="bg-lan color-bai"> 允许授权 </button>
+      </van-col>
+    </van-row>
+    <!-- <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+    </block> -->
+  </view>
+</view>
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />

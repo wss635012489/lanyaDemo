@@ -1,0 +1,33 @@
+<view>
+  <view class="mt-40">
+    <view class="pad-lr-15">
+      <view class="font-24">切换账号登录</view>
+      <view class="mt-10 color-9">轻触账号以登录</view>
+    </view>
+    <view class="mt-40 account">
+      <view class="y-center pad van-hairline--top">
+        <van-image round width="90rpx" height="90rpx" fit="cover" src="{{headUrl}}"/>
+        <view class="ml-10">
+          <view class="color-7">17683246817</view>
+          <view class="mt-2"><van-tag round type="success">当前登录</van-tag></view>
+        </view>
+      </view>
+      <view class="y-center pad van-hairline--top">
+        <van-image round width="90rpx" height="90rpx" fit="cover" src="{{headUrl}}"/>
+        <view class="ml-10">
+          <view class="color-7">17683246817</view>
+        </view>
+      </view>
+      <view class="y-center pad van-hairline--top van-hairline--bottom">
+        <van-image round width="90rpx" height="90rpx" fit="cover" src="{{headUrl}}"/>
+        <view class="ml-10">
+          <view class="color-7">17683246817</view>
+        </view>
+      </view>
+    </view> 
+    <view class="text-center mt-70 checkout-btn">
+      <van-button color="#EDEDED" round bind:click="outLogin">换个账户登录</van-button>
+    </view>
+  </view>
+</view>
+<van-dialog id="van-dialog" />

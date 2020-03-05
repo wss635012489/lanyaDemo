@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "commity": "/components/commList/commList"
+  },
+  "navigationBarTitleText": "商品搜索"
+}

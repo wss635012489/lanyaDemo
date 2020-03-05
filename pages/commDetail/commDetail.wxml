@@ -1,0 +1,74 @@
+<view wx:if="{{isShowCont}}">
+  <view class="banner">
+    <swiper autoplay indicator-dots="{{showDot}}" indicator-active-color="#003D9A" indicator-color="#95b4e4">
+      <swiper-item>
+        <block wx:for="{{swiperImg}}" wx:key="{{index}}">
+          <image src="{{item.url}}?imageMogr2/format/jpg/quality/40" mode="aspectFit" wx:if="{{item.isImg}}"></image>
+          <video src="{{item.url}}" wx:else></video>
+        </block>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="comm-info pad-15">
+    <view class="font-16 blod van-multi-ellipsis--l2">{{good_name}}</view>
+    <view class="mt-10 color-9 van-multi-ellipsis--l2">
+      {{good_desc}}
+    </view>
+    <view class="bg-lan color-bai my-pad mt-10 pad-10">商品信息</view>
+    <view class="price-box pad-10">
+      <view class="between">
+        <view>
+          <text>市场价</text><text class="through ml-15 color-16">¥{{good_price}}</text>
+        </view>
+        <view>
+          累计销量 <text class="blod color-lan">{{total_bug_num}}</text> {{good_unit}}
+        </view>
+      </view>
+      <view class="mt-10">
+      <text>优惠价</text><text class="ml-15 font-16 blod color-lan">¥{{price_num}}<text wx:if="{{bean_num}}"> + {{bean_num}}<text class="font-12">({{integral_name}})</text></text></text>
+      </view>
+      <view class="mt-10">
+      <text decode space="nbsp">单位&nbsp;&nbsp;&nbsp;&nbsp;</text><text class="ml-15 color-6">{{good_unit}}</text>
+      </view>
+    </view>
+    <view class="pad-10">
+      <view class="other pos-r mt-5">
+        <view class="title" style="top:22rpx">规格：</view>
+        <view class="my-ul overflow">
+          <view class="{{specActiveIndex == index?'active':''}}" data-itemindex="{{index}}" data-itemid="{{item.id}}" bindtap="selSpecItem" wx:for="{{specList}}" wx:key="{{item.id}}">{{item.spec_name}}</view>
+        </view>
+      </view>
+      <view class="other pos-r mt-15">
+        <view class="title">数量：</view>
+        <van-stepper value="{{ good_number }}" bind:change="onNumberChange" input-width="160rpx" button-size="64rpx"/>
+      </view>
+    </view>
+  </view>
+  <view class="detail-title pad-bt-10 color-9 text-center">—— 商品详情 ——</view>
+  <view class="comm-img">
+    <block wx:if="{{detailsList.length > 0}}">
+      <block wx:for="{{detailsList}}" wx:key="{{item.id}}"> 
+        <view wx:if="{{item.isVideo}}">
+          <!-- <view class="mt-30 pad-b-20 text-center">{{item.step_name}}</view> -->
+          <video src="{{item.step_type_url}}" class="my-video" id="video_{{index}}" bindplay="videoStartPlay"></video>
+        </view>
+        <image src="{{item.step_type_url}}?imageMogr2/format/jpg/quality/40" lazy-load="{{true}}" mode="widthFix" wx:else></image>
+      </block>
+    </block>
+    <block wx:else>
+      <view class="mt-30 color-9 text-center">暂无商品详情~</view>
+      <view style="height:60rpx"></view>
+    </block>
+    
+  </view>
+  <view style="height:130rpx"></view>
+</view>
+<view class="footer my-flex bg-bai">
+  <view class="my-flex my-flex-1 pad-lr-15 y-center van-hairline--top van-ellipsis">
+    合计：<text class="font-18 blod">¥{{toal_price_num}}<text wx:if="{{toal_bean_num}}"> + {{toal_bean_num}}<text class="font-12">({{integral_name}})</text></text></text>
+  </view>
+  <view class="my-flex btn bg-lan color-bai x-center y-center" bindtap="addComm">
+    加入购物车
+  </view>
+</view>
+<van-toast id="van-toast" />

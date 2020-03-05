@@ -1,0 +1,100 @@
+
+<van-sticky offset-top="{{ 1 }}">
+  <view class="pad-15 top bg-bai" style="margin-top:-1px"><!-- 防止抖动 -->
+    <view class="between y-center">
+      <view class="y-center" bindtap="openPop">
+        {{myDate}}<van-icon name="play" class="font-10 mt-2 time-icon color-6"/>
+      </view>
+      <view>
+        <van-dropdown-menu active-color="#003D9A">
+          <van-dropdown-item value="{{ testingType }}" options="{{ testingOption }}" bind:change="menuChange"/>
+        </van-dropdown-menu>
+      </view>
+    </view>
+    <view class="text-center mt-10">
+      <van-row>
+        <van-col span="6">
+          <view class="van-hairline--right">
+            <view class="color-9">测量(次)</view>
+            <view class="mt-5 blod font-16">{{totalNumber}}</view>
+          </view>
+        </van-col>
+        <van-col span="6">
+          <view class="van-hairline--right">
+            <view class="color-9">正常(次)</view>
+            <view class="mt-5 blod font-16">{{normalNumber}}</view>
+          </view>
+        </van-col>
+        <van-col span="6">
+          <view class="van-hairline--right">
+            <view class="color-9">偏高(次)</view>
+            <view class="mt-5 blod font-16">{{heightNumber}}</view>
+          </view>
+        </van-col>
+        <van-col span="6">
+          <view>
+            <view class="color-9">偏低(次)</view>
+            <view class="mt-5 blod font-16">{{lowNumber}}</view>
+          </view>
+        </van-col>
+      </van-row>
+    </view>
+  </view>
+</van-sticky>
+<view class="list-box pad-lr-15">
+  <block wx:if="{{list.length > 0}}">
+    <view class=" pos-r pad-t-10" wx:for="{{list}}" wx:key="{{item.id}}">
+      <view class="img-box y-center">
+        <image src="/assets/img/jc_0{{testingType}}.png" lazy-load="{{true}}"></image>
+      </view>
+      <view class="item-cont">
+        <view class="van-hairline--bottom pad-b-10">
+          <block wx:if="{{testingType == 1}}">
+            <view class="between">
+              <view class="{{item.evaluationResultNumber == 1? 'color-lv':''}} {{item.evaluationResultNumber == 2?'color-hong':''}} {{item.evaluationResultNumber == 3?'color-huang':''}}">
+                <text class="font-18 blod " wx:if="{{testingTypeVal == 2}}">{{item.blood_sugar}}</text>{{unit}}</view>
+              <view class="blod {{item.evaluationResultNumber == 1? 'color-lv':''}} {{item.evaluationResultNumber == 2?'color-hong':''}} {{item.evaluationResultNumber == 3?'color-huang':''}}">{{item.detection_result}}</view>
+            </view>
+            <view class="color-9 between mt-3">
+              <view>{{measuringOptions[item.status]}}</view>
+              <view>{{item.detection_time}}</view>
+            </view>
+          </block>
+          <block wx:else>
+            <view>测量时间：{{item.detection_time}}</view>
+            <view class="mt-10" wx:for="{{item.list}}" wx:for-item="itemChild">
+              <van-row gutter="15">
+                <van-col span="9">
+                  <view class="van-ellipsis {{itemChild.result =='偏高'?'color-hong':''}} {{itemChild.result =='偏低'?'color-huang':''}} {{itemChild.result =='正常'?'color-lv':''}} {{itemChild.result =='不正常'?'color-lan-2':''}}">{{itemChild.name}}</view>
+                </van-col>
+                <van-col span="10">
+                  <view class="text-center">
+                    <text class="blod">{{itemChild.val}}</text> mmol/L
+                  </view>
+                </van-col>
+                <van-col span="5">
+                  <view class="text-right {{itemChild.result =='偏高'?'color-hong':''}} {{itemChild.result =='偏低'?'color-huang':''}} {{itemChild.result =='正常'?'color-lv':''}} {{itemChild.result =='不正常'?'color-lan-2':''}}">
+                    {{itemChild.result}}
+                  </view>
+                </van-col>
+              </van-row>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="text-center color-9 mt-20">暂无测量数据~</view>
+  </block>
+</view>
+<view class="text-center pad-bt-10" wx:if="{{loading}}"><van-loading size="24rpx" vertical>加载中...</van-loading></view>
+<van-popup show="{{ showPop }}"  position="bottom">
+  <van-datetime-picker
+    type="year-month"
+    value="{{ selectDate }}"
+    max-date="{{ maxDate }}"
+    bind:cancel="closePop"
+    bind:confirm="onConfirm"
+  />
+</van-popup>

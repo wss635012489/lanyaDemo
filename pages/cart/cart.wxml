@@ -1,0 +1,59 @@
+<block wx:if="{{list.length > 0}}">
+  <van-sticky offset-top="{{ 1 }}">
+    <view class="pad color-6" style="background:#f8f8f8;margin-top:-1px">共{{total}}件商品，已选{{selNumber}}件商品</view>
+  </van-sticky>
+  <view class="pad-lr-15 mt-2">
+    <view class="item-li bg-bai pad" wx:for="{{list}}" wx:key="{{item.id}}">
+      <view class="font-20 text-right" style="color:#bbb"><van-icon name="clear" data-commid="{{item.id}}" bind:click="delItem"/></view>
+      <view class="my-flex mt-5">
+        <view class="y-center ">
+          <view class="mr-15"><van-checkbox value="{{ item.isSel }}" data-commid="{{item.id}}" bind:change="onCheckChange" checked-color="#003D9A"></van-checkbox></view>
+          <van-image
+            width="160rpx"
+            height="160rpx"
+            fit="contain"
+            src="{{item.main_img}}?imageMogr2/format/jpg/quality/45"
+            lazy-load
+          />
+        </view>
+        <view class="my-flex my-flex-1">
+          <view class="pad-l-15">
+            <view class="van-multi-ellipsis--l2"><van-tag plain color="#00399D">包邮</van-tag> {{item.good_name}}</view>
+            <view class="mt-15 ">规格：<van-tag plain color="#00399D" size="medium" data-goodid="{{item.good_id}}" bindtap="openSpec">{{item.spec_name}}<van-icon name="arrow-down" class="ml-5"/></van-tag></view>
+            <view class="y-center mt-15">数量：<van-stepper value="{{ item.order_num }}" min="1" integer bind:change="onNumberChange" input-width	="100rpx" data-commid="{{item.id}}"/></view>
+          </view>
+        </view>
+      </view>
+      <view class="text-right mt-25">
+        金额：<text class="color-lan">¥<text class="font-18">{{item.activity_price_num * item.order_num}}</text><text wx:if="{{item.activity_bean_num * item.order_num}}">+{{item.activity_bean_num * item.order_num}}<text class="font-12">({{integral_name}})</text></text></text>
+      </view>
+    </view>
+    <view class="text-center pad-t-15" wx:if="{{loading}}">
+      <van-loading size="40rpx">加载中...</van-loading>
+    </view>
+    <view style="height:160rpx"></view>
+  </view>
+  <view class="footer y-center van-hairline--top">
+    <view class="pad-lr-15 between y-center" style="width:100%">
+      <view><van-checkbox value="{{ checkedAll }}" bind:change="onCheckAllChange" checked-color="#003D9A">{{checkedAll?'取消':'全选'}}</van-checkbox></view>
+      <view class="y-center">
+        合计：<text class="color-lan">¥<text class="font-18">{{all_price_num}}</text><text wx:if="{{all_bean_num}}">+{{all_bean_num}}<text class="font-12">({{integral_name}})</text></text></text>
+        <van-button round color="#003D9A"  class="ml-15" bind:click="goPayment" disabled="{{!all_price_num && !all_bean_num}}">去结算</van-button>
+      </view>
+    </view>
+  </view>
+</block>
+<view class="text-center color-9 font-16" style="padding-top:400rpx" wx:else>购物车里空空的，去添加一个吧</view>
+<van-popup
+  show="{{ showPop }}"
+  round
+  position="bottom"
+  custom-style="min-height: 20%"
+  bind:close="onClose"
+>
+  <view class="pad pad-t-15 pop-box">
+    <van-tag type="primary" plain size="large" color="#003D9A" wx:for="{{specList}}" wx:key="{{item.id}}" data-specitem="{{item}}" bindtap="selSpecItem">{{item.spec_name}}</van-tag>
+  </view>
+</van-popup>
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />

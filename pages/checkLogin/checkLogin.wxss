@@ -1,0 +1,8 @@
+/* pages/checkLogin/checkLogin.wxss */
+.checkout-btn button {
+  width: 80%;
+  color: #333 !important;
+}
+.account >view:active {
+  background-color: rgba(0,0,0,0.01)
+}

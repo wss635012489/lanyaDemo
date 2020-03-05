@@ -1,0 +1,20 @@
+/* pages/testingHistory/testingHistory.wxss */
+.time-icon {
+   margin-left: 6rpx;
+   transform: rotate(90deg)
+}
+.list-box .img-box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80rpx;
+  height: 100%
+}
+.list-box .img-box image {
+  width: 70rpx;
+  height: 70rpx;
+  display: block
+}
+.list-box .item-cont {
+  padding-left: 96rpx
+}

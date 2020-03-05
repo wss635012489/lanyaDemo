@@ -1,0 +1,82 @@
+
+<van-sticky offset-top="{{ 1 }}">
+  <view style="margin-top:-1px">
+    <van-tabs active="{{ active }}" bind:change="onChange" color="#003D9A" swipe-threshold="5">
+      <van-tab title="全部"></van-tab>
+      <van-tab title="待付款"></van-tab>
+      <van-tab title="待发货"></van-tab>
+      <van-tab title="待收货"></van-tab>
+      <van-tab title="售后退款"></van-tab>
+    </van-tabs>
+  </view>
+</van-sticky>
+<!-- <view class="item-li mt-10 bg-bai">
+  <view class="between pad y-center van-hairline--bottom">
+    <view class="color-9 y-center"><view class="font-16 mr-5 mt-2"><van-icon name="clock-o" /></view>2020-8-8</view>
+    <view>待付款</view>
+  </view>
+  <view class="pad y-center van-hairline--bottom">
+    <van-image
+      width="160rpx"
+      height="160rpx"
+      fit="contain"
+      src="/assets/img/xxx.jpg"
+    />
+    <view class="ml-15">
+      <view class="van-ellipsis" style="width:440rpx">标题标题标题标题标题标题标题标标111111111</view>
+      <view class="mt-10">规格：50片/盒装</view>
+      <view class="mt-10">数量：1</view>
+    </view>
+  </view>
+  <view class="pad between van-hairline--bottom">
+    <text>共1件商品</text>
+    <text>合计：<text class="color-lan">¥16+10<text class="font-12">({{integral_name}})</text></text></text>
+  </view>
+  <view class="y-center text-center pad van-hairline--bottom">
+    <view>
+      <van-image
+        width="68rpx"
+        height="68rpx"
+        src="/assets/img/order_df_y.png"
+      />
+      <view class="plot">待付款</view>
+    </view>
+    <block>
+      <view class="line"></view>
+      <view>
+        <van-image
+          width="68rpx"
+          height="68rpx"
+          src="/assets/img/order_df_y.png"
+        />
+        <view class="plot">待付款</view>
+      </view>
+    </block>
+    <block>
+      <view class="line"></view>
+      <view>
+        <van-image
+          width="68rpx"
+          height="68rpx"
+          src="/assets/img/order_df_y.png"
+        />
+        <view class="plot">待付款</view>
+      </view>
+    </block>
+    <block>
+      <view class="line"></view>
+      <view>
+        <van-image
+          width="68rpx"
+          height="68rpx"
+          src="/assets/img/order_df_y.png"
+        />
+        <view class="plot">待付款</view>
+      </view>
+    </block>
+  </view>
+  <view class="text-right btn-box pad-bt-12">
+    <van-button type="default">取消订单</van-button>
+    <van-button color="#003D9A">去支付</van-button>
+  </view>
+</view>  -->

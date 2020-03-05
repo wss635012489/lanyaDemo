@@ -1,0 +1,32 @@
+<view class="pad-t-15">
+  <block wx:if="{{list.length > 0}}">
+    <view class="pad-lr-15">
+      <view class="bg-bai item-box" wx:for="{{list}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="selItem">
+        <view class="pad-15">
+          <view class="between">
+            <view>收货人：{{item.user_name}}</view>
+            <view>联系电话：{{item.tel_phone}}</view>
+          </view>
+          <view class="mt-10">收获地址：<van-tag wx:if="{{item.if_default}}" color="#003D9A">默认地址</van-tag>{{item.province_name}}{{item.city_name}}{{item.district_name}}{{item.address}}{{item.house_num}}</view>
+        </view>
+        <view class="van-hairline--top">
+          <van-row>
+            <van-col span="12" >
+              <view class="van-hairline--right pad-bt-12 y-center x-center" data-adId="{{item.id}}" catchtap="linkTo"><van-icon name="edit"/>编辑</view>
+            </van-col>
+            <van-col span="12">
+              <view class="pad-bt-12 y-center x-center" data-adId="{{item.id}}" catchtap="delAddress"><van-icon name="delete"/>删除</view>
+            </van-col>
+          </van-row>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class="text-center color-9" style="margin-top:160rpx" wx:else>暂无收货地址，去添加一个吧~</view>
+</view>
+<view class="text-center" wx:if="{{loading}}">
+  <van-loading class="pad-bt-15" size="40rpx">加载中...</van-loading>
+</view>
+<view style="height:140rpx"></view>
+<view class="add-btn bg-lan color-bai y-center x-center btn" bindtap="linkTo"><van-icon name="plus" />新增地址</view>
+<van-dialog id="van-dialog" />

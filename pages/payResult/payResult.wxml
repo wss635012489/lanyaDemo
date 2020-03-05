@@ -1,0 +1,10 @@
+<block>
+  <view class="text-center mt-60">
+    <view style="font-size:200rpx;color:#09BB07"><van-icon name="checked" /></view>
+    <view class="font-20">支付成功</view>
+  </view>
+  <view class="between" style="padding:0 8%;margin-top:260rpx">
+    <van-button color="#999" bind:click="back">返回</van-button>
+    <van-button color="#003D9A" bind:click="seeOrder">查看订单</van-button>
+  </view>
+</block>

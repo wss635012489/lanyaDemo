@@ -1,0 +1,308 @@
+/**app.wxss**/
+@import "./miniprogram_npm/@vant/weapp/common/index.wxss";
+page {
+  font-size: 28rpx
+}
+.pad-l-15 {
+  padding-left: 30rpx
+}
+.pad-lr-5 {
+  padding: 0 10rpx
+}
+.pad-lr-10 {
+  padding: 0 20rpx
+}
+.pad-lr-15 {
+  padding: 0 30rpx
+}
+.pad-5 {
+  padding: 10rpx
+}
+.pad-10 {
+  padding: 20rpx
+}
+.pad-bt-5 {
+  padding: 10rpx 0
+}
+.pad-bt-10 {
+  padding: 20rpx 0
+}
+.pad-bt-12 {
+  padding: 24rpx 0
+}
+.pad-bt-15 {
+  padding: 30rpx 0
+}
+.pad {
+  padding: 20rpx 30rpx
+}
+.pad-15 {
+  padding: 30rpx
+}
+.pad-t-5 {
+  padding-top: 10rpx
+}
+.pad-t-10 {
+  padding-top: 20rpx
+}
+.pad-t-15 {
+  padding-top: 30rpx
+}
+.pad-b-20 {
+  padding-bottom: 40rpx
+}
+.pad-b-15 {
+  padding-bottom: 30rpx
+}
+.pad-b-10 {
+  padding-bottom: 20rpx
+}
+.pad-b-0 {
+  padding-bottom: 0
+}
+.pad-r-10 {
+  padding-right: 20rpx
+}
+.pad-r-15 {
+  padding-right: 30rpx
+}
+.mt--2 {
+  margin-top: -4rpx
+}
+.mt--3 {
+  margin-top: -6rpx
+}
+.mt-2 {
+  margin-top: 4rpx
+}
+.mt-3 {
+  margin-top: 6rpx
+}
+.mt-5 {
+  margin-top: 10rpx
+}
+.mt-8 {
+  margin-top: 16rpx
+}
+.mt-10 {
+  margin-top: 20rpx
+}
+.mt-15 {
+  margin-top: 30rpx
+}
+.mt-20 {
+  margin-top: 40rpx
+}
+.mt-25 {
+  margin-top: 50rpx
+}
+.mt-30 {
+  margin-top: 60rpx
+}
+.mt-40 {
+  margin-top: 80rpx
+}
+.mt-50 {
+  margin-top: 100rpx
+}
+.mt-60 {
+  margin-top: 120rpx
+}
+.mt-70 {
+  margin-top: 140rpx
+}
+.ml-5 {
+  margin-left: 10rpx
+}
+.ml-10 {
+  margin-left: 20rpx
+}
+.ml-15 {
+  margin-left: 30rpx
+}
+.mr-5 {
+  margin-right: 10rpx
+}
+.mr-10 {
+  margin-right: 20rpx
+}
+.mr-15 {
+  margin-right: 30rpx
+}
+.font-10 {
+  font-size: 20rpx
+}
+.font-12 {
+  font-size: 24rpx
+}
+.font-13 {
+  font-size: 26rpx
+}
+.font-14 {
+  font-size: 28rpx
+}
+.font-16 {
+  font-size: 32rpx
+}
+.font-17 {
+  font-size: 34rpx
+}
+.font-18 {
+  font-size: 36rpx
+}
+.font-20 {
+  font-size: 40rpx
+}
+.font-24 {
+  font-size: 48rpx
+}
+.font-34 {
+  font-size: 68rpx
+}
+.font-30 {
+  font-size: 60rpx
+}
+.font-40 {
+  font-size: 80rpx
+}
+.color-bai {
+  color: #fff
+}
+.color-9 {
+  color: #999
+}
+.color-8 {
+  color: #888
+}
+.color-7 {
+  color: #777
+}
+.color-6 {
+  color: #666
+}
+.color-3 {
+  color: #333
+}
+.color-d {
+  color: #ddd
+}
+.color-f5 {
+  color: #f5f5f5
+}
+.color-huang {
+  color: #F57C3C
+}
+.color-lan {
+  color: #003D9A
+}
+.bg-3 {
+  background-color: #333
+}
+.bg-bai {
+  background-color: #fff
+}
+.bg-f5 {
+  background-color: #f5f5f5
+}
+.bg-f8 {
+  background-color: #F8F8F8
+}
+.bg-lan {
+  background-color: #003D9A
+}
+.text-left {
+  text-align: left
+}
+.text-center {
+  text-align: center
+}
+.text-right {
+  text-align: right
+}
+.x-center {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.y-center {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.y-end {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+}
+.between  {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+.x-end {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+.line-h-16 {
+  line-height: 32rpx
+}
+.line-h-18 {
+  line-height: 36rpx
+}
+.line-h-20 {
+  line-height: 40rpx
+}
+.pos-r {
+  position: relative
+}
+.btn:active {
+  opacity: 0.9
+}
+.blod {
+  font-weight: 600
+}
+.overflow {
+  overflow: hidden
+}
+.my-flex {
+    display: flex;
+    -webkit-display: flex;
+}
+.my-flex-1 {
+    flex: 1;
+    -webkit-flex: 1;
+}
+.underline {
+  text-decoration: underline
+}
+.through {
+  text-decoration: line-through
+}
+.color-hong {
+  color: #EF2222
+}
+.color-huang {
+  color: #E89C34
+}
+.color-lv {
+  color: #29BC16
+}
+.color-lan-2 {
+  color: #4169E1
+}
+/*vant*/
+.van-dialog__button {
+  width: 320rpx !important;
+  text-align: center
+}
+.van-dialog__button button {
+  width: 100% !important;
+  min-height:100rpx
+}
+

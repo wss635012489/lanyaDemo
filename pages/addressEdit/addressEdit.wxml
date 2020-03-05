@@ -1,0 +1,79 @@
+<view class="mt-15">
+  <view>
+    <van-field
+      clearable
+      label="姓名"
+      value="{{ user_name }}"
+      placeholder="请输入收货人姓名"
+      bind:change="onUserNameChange"
+    />
+  </view>
+  <view class="pad-l-15">
+    <view class="pad-bt-15 van-hairline--bottom">
+      <van-radio-group value="{{ sex }}" bind:change="onSexChange" class="y-center x-center">
+        <van-radio name="0" checked-color="#003D9A" style="margin-right:220rpx">女生</van-radio>
+        <van-radio name="1" checked-color="#003D9A">先生</van-radio>
+      </van-radio-group>
+    </view>
+  </view>
+  <view >
+    <van-field
+      label="电话号码"
+      clearable
+      value="{{ tel_phone }}"
+      placeholder="请输入收货人电话号码"
+      bind:change="onTelChange"
+      type="number"
+      maxlength="11"
+    />
+  </view>
+  <view bindtap="openArea">
+    <van-field
+      label="省市区"
+      clearable
+      value="{{ area_info }}"
+      placeholder="请输入街道名称/小区名称"
+      bind:change="onAreaChange"
+      disabled
+    />
+  </view>
+  <view >
+    <van-field
+      label="街/号/小区"
+      clearable
+      value="{{ address }}"
+      placeholder="请输入街道名称/小区名称"
+      bind:change="onAdrChange"
+    />
+  </view>
+  <view >
+    <van-field
+      label="门牌号"
+      clearable
+      value="{{ house_num }}"
+      placeholder="请输入几栋几单元门牌号"
+      bind:change="onHouseChange"
+    />
+  </view>
+  <view class="pad-l-15">
+    <view class="pad-bt-15 van-hairline--bottom between y-center pad-r-15">
+      <view>是否设置为默认地址</view>
+      <van-switch checked="{{ if_default }}" bind:change="onSwitchChange" active-color="#003D9A" size="44rpx" class="mt-5"/>
+    </view>
+  </view>
+</view>
+<view class="pad-lr-15 mt-60">
+  <van-button color="#003D9A" block bind:click="submit">保存</van-button>
+</view>
+<van-popup show="{{showArea}}" position="bottom" :close-on-click-overlay="false">
+    <van-picker 
+      show-toolbar
+      title="地址选择"
+      columns="{{columns}}"
+      bind:cancel="onCancel"
+      bind:confirm="onConfirm"
+      bind:change="onChange" 
+    />
+</van-popup>
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />

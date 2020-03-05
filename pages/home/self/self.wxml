@@ -1,0 +1,118 @@
+<view class="pad-15">
+    <view class="mask pad-15 color-bai">
+      <view class="y-center">
+        <view class="mt-5">
+          <van-image
+            round
+            width="76rpx"
+            height="76rpx"
+            fit="cover"
+            src="{{headUrl}}"
+          />
+        </view>
+          <view class="ml-10">
+            <view class="font-16">{{nick_name}}</view>
+            <view class="font-12 mt-3" wx:if="{{create_time}}">注册时间：{{create_time}}</view>
+          </view>
+      </view>
+      <view class="text-center" style="padding:60rpx 0">
+        <van-row>
+          <van-col span="12">
+            <view>
+              <image src="/assets/img/money.png" style="width:62rpx;height:62rpx"></image>
+            </view>
+            <view class="mt-3">{{integral_name}}余额</view>
+            <view class="mt-3">{{currency}}</view>
+          </van-col>
+          <van-col span="12">
+            <view bindtap="openScan"><van-icon name="scan" class="font-30"/></view>
+            <view class="mt-3">扫一扫</view>
+            <view class="mt-3">绑定门店</view>
+          </van-col>
+        </van-row>
+      </view>
+    </view>
+    <!-- <view class="meun-box mt-15 pad-t-15">
+      <view class="title pad-lr-15">订单管理</view>
+      <view class="mt-15">
+        <van-grid clickable column-num="3">
+            <van-grid-item
+              url="/pages/order/order?tab=1"
+              text="待支付">
+                <van-image width="60rpx" height="60rpx" fit="cover" src="/assets/img/self_item_01.png" slot="icon"/>
+            </van-grid-item>
+            <van-grid-item
+              url="/pages/order/order?tab=2"
+              text="待收货">
+              <van-image width="60rpx" height="60rpx" fit="cover" src="/assets/img/self_item_02.png" slot="icon"/>
+            </van-grid-item>
+            <van-grid-item
+              url="/pages/order/order?tab=0"
+              text="全部订单">
+              <van-image width="60rpx" height="60rpx" fit="cover" src="/assets/img/self_item_03.png" slot="icon"/>
+            </van-grid-item>
+          </van-grid>
+      </view>
+    </view> -->
+    <!-- <view class="meun-box mt-15 pad-t-15">
+      <view class="title pad-lr-15">会员服务</view>
+      <view class="mt-15">
+        <van-grid clickable column-num="3">
+            <van-grid-item
+              data-linkurl="/pages/dashboard/index"
+              text="家人健康"
+              bind:click="linkTo">
+                <van-image width="60rpx" height="60rpx" fit="cover" src="/assets/img/self_item_04.png" slot="icon"/>
+            </van-grid-item>
+            <van-grid-item
+              data-linkurl="/pages/dashboard/index"
+              text="设备管理"
+              bind:click="linkTo">
+                <van-image width="60rpx" height="60rpx" fit="cover" src="/assets/img/self_item_05.png" slot="icon"/>
+            </van-grid-item>
+            <van-grid-item
+              data-linkurl="/pages/dashboard/index"
+              text="设置"
+              bind:click="linkTo">
+                <van-image width="60rpx" height="60rpx" fit="cover" src="/assets/img/self_item_06.png" slot="icon"/>
+            </van-grid-item>
+            <van-grid-item
+              url="/pages/address/address"
+              text="收货地址">
+                <van-image width="60rpx" height="60rpx" fit="cover" src="/assets/img/self_item_07.png" slot="icon"/>
+            </van-grid-item>
+            <van-grid-item
+              text="退出账号"
+              bind:click="outLogin">
+                <van-image width="60rpx" height="60rpx" fit="cover" src="/assets/img/self_item_08.png" slot="icon"/>
+            </van-grid-item>
+            <van-grid-item
+              text="客服热线"
+              bind:click="bdPhone">
+                <van-image width="60rpx" height="60rpx" fit="cover" src="/assets/img/self_item_09.png" slot="icon"/>
+            </van-grid-item>
+          </van-grid>
+      </view>
+    </view> -->
+    <view class="mt-15 meun-box">
+      <van-cell-group>
+        <van-cell title="测量记录" is-link bind:click="linkTo" data-linkurl="/pages/testingHistory/testingHistory">
+          <image src="/assets/img/item_01.png" slot="icon"></image>
+        </van-cell>
+        <van-cell title="收货地址" is-link  bind:click="linkTo" data-linkurl="/pages/address/address">
+          <image src="/assets/img/adr.png" slot="icon"></image>
+        </van-cell>
+      </van-cell-group>
+      <view class="mt-10">
+        <van-cell-group>
+          <van-cell title="客服热线" is-link  bind:click="bdPhone">
+              <image src="/assets/img/item_02.png" slot="icon"></image>
+            </van-cell>
+            <van-cell title="{{nick_name == '昵称'?'登录帐号':'切换账号'}}" is-link bind:click="outLogin">
+              <image src="/assets/img/item_03.png" slot="icon"></image>
+            </van-cell>
+        </van-cell-group>
+      </view>
+    </view>
+  </view>
+  <van-dialog id="van-dialog" />

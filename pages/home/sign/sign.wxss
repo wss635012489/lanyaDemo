@@ -1,0 +1,126 @@
+/* pages/home/sign/sign.wxss */
+page {
+  min-height: 100%;
+  background-color: #f8f8f8;
+}
+.top-bg image {
+  width: 100%;
+  display: block
+}
+.canlendarBox {
+  position: absolute;
+  top: 360rpx;
+  left:0;
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.canlendarBgView {
+  background-color: #fff;
+  border-radius: 10rpx;
+  padding: 30rpx 20rpx;
+  box-shadow: 0 3rpx 10rpx #ccc;
+  padding-top: 100rpx 
+}
+.weekBgView {
+  overflow: hidden;
+}
+.weekView,.datesView {
+  float: left;
+  width: 14.28%
+}
+.centerView {
+  width: 300rpx
+}
+.datesView {
+  height: 54rpx;
+  line-height: 54rpx
+}
+.canlendarTopView {
+  border-top: 1px solid #003D9A
+}
+.dateSelectView {
+  background-color: #003D9A;
+  color: #fff;
+  display: inline-block;
+  width: 54rpx;
+  height: 54rpx;
+  border-radius: 100%;
+  overflow: hidden
+}
+.leftBgView,.rightBgVie {
+  margin-top: 8rpx
+}
+.sign-type {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  text-align: center;
+  line-height: 60rpx
+}
+.color-lv {
+  color: #039E3B
+}
+.sign-type image {
+  margin-top: 3rpx
+}
+.bg-d {
+  background-color: #ddd
+}
+.sign-btn .van-button {
+  width: 100% !important;
+  border-radius: 20rpx
+}
+.signNumber {
+  position: absolute;
+  top: -72rpx;
+  left: 0;
+  width: 100%;
+}
+.signNumber >view,.signNumber >view >view {
+  display: inline-block;
+  border-radius: 10rpx
+}
+.signNumber >view {
+  width: 368rpx;
+  height: 144rpx;
+  background-color: rgba(68,135,255,0.6);
+  padding: 16rpx;
+  box-sizing: border-box;
+}
+.signNumber >view >view {
+  height: 100%;
+  width: 100%;
+  background: #205EC9;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.popMod {
+  width: 640rpx;
+  height: 960rpx
+}
+.popMod image {
+  width: 100%;
+  height: 800rpx
+}
+.popCont {
+  position: absolute;
+  top: 140rpx;
+  left: 0;
+  width: 100%;
+  height: 624rpx;
+  padding: 50rpx;
+  box-sizing: border-box;
+}
+.popMod button {
+  width: 80%;
+  color:#721010 !important
+}
+.van-popup {
+  background-color: inherit !important;
+  color: #fff
+}

@@ -1,0 +1,91 @@
+/* pages/healthyTesting/healthyTesting.wxss */
+page {
+  min-height: 100%;
+  /* background-color: #f8f8f8 */
+}
+.circular-01 {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 100%;
+  
+  display: inline-block;
+  padding: 20rpx;
+}
+.circular-02 {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border-radius: 100%;
+  line-height: 260rpx
+}
+.circular-02 image {
+  width: 80rpx;
+  height: 90rpx;
+}
+swiper {
+  height: 500rpx
+}
+.my-swiper button {
+  width: 400rpx;
+  border-radius: 20rpx
+}
+.bg-hong {
+  background: linear-gradient(rgba(255,138,117,0.3) , #FF8A75);
+  background: -webkit-linear-gradient(rgba(255,138,117,0.3) , #FF8A75);
+}
+.bg-hong .circular-02 {
+  background: linear-gradient(rgba(252,86,56,0.3) , #FC5638);
+  background: -webkit-linear-gradient(rgba(252,86,56,0.3) , #FC5638);
+}
+.bg-lv {
+  background: linear-gradient(#f0f7ce , #bae4c2);
+  background: -webkit-linear-gradient(#f0f7ce , #bae4c2);
+}
+.bg-lv .circular-02 {
+  background: linear-gradient(#dded62 , #18a734);
+  background: -webkit-linear-gradient(#dded62 , #18a734);
+}
+.measureResult {
+  border-radius: 10rpx;
+  box-shadow: 0 6rpx 12rpx #ccc
+}
+.measureResult .btn {
+  color: #003D9A;
+  text-decoration: underline
+}
+.van-dropdown-menu {
+  background-color: inherit !important;
+  height: 70rpx !important;
+}
+.dialog-input-box >view {
+  border-radius: 10rpx;
+  overflow: hidden;
+  height: 88rpx;
+}
+.dialog-input-pad {
+  padding: 60rpx 30rpx
+}
+.dialog-input-pad_xz {
+  padding:30rpx
+}
+.dialog-input-box .lan-btn:last-child {
+  height: auto;
+  overflow: inherit
+}
+.dialog-input-box .right {
+  width: 140rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+video {
+  width: 100%;
+  height: 390rpx;
+  border-radius: 10rpx
+}
+.lan-btn .van-button {
+  width: 100% !important
+}
+.swiper-btn-box .van-button {
+  width: 290rpx !important;
+  height: 80rpx !important;
+}

@@ -1,0 +1,8 @@
+/* pages/login/login.wxss */
+.login-btn button {
+  width: 80%
+}
+.code-box .van-button--small {
+  width: 210rpx;
+  height: 60rpx !important
+}
